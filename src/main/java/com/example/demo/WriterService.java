@@ -10,9 +10,12 @@ import java.io.BufferedWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
+
 @Service
 public class WriterService {
 
+    @Value("${NAMES_PATH:output.txt}")
     private final String filePath;
 
     public WriterService() {

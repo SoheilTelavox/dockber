@@ -21,7 +21,7 @@ public class DemoController {
         return "Content written to file.";
     }
 
-	@GetMapping("/names")
+	@GetMapping("/namess")
     public List<String> getAllNames() {
         return fileWriteService.readFromFile();
     }
