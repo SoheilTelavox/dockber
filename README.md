@@ -4,9 +4,6 @@ You can find the code base related to Docker and Kubernetes knowldge base sessio
 
 ## Web Running Command
 
-    docker run -d --rm -p 4200:4200 --name web -v $(pwd)/web:/app -v /app/node_modules web
-
-## ApiService Running Command
     docker run 
     -d 
     --rm 
@@ -15,3 +12,6 @@ You can find the code base related to Docker and Kubernetes knowldge base sessio
     -v $(pwd)/web:/app 
     -v /app/node_modules 
     web
+
+## ApiService Running Command
+    
