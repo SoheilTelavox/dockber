@@ -1,5 +1,0 @@
-FROM node:21
-
-WORKDIR /var/www/html
-
-ENTRYPOINT [ "npm" ]
