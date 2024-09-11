@@ -2,12 +2,16 @@ package com.example.demo;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 @RestController
@@ -22,8 +26,12 @@ public class DemoController {
     }
 
     @GetMapping("/facts")
-    public List<FactObject> facts() {
-        return bridgeService.getFacts().getData();
+    public List<String> facts(@RequestParam(defaultValue = "1") Integer page) {
+        return bridgeService.getFacts(page)
+            .getData()
+            .stream()
+            .map( f -> f.getFact())
+            .collect(Collectors.toList());
     }
 
     @GetMapping("/favorites")
@@ -36,5 +44,10 @@ public class DemoController {
         var fact = new Fact();
         fact.setFact(body);
         return factRepository.save(fact);
+    }
+
+    @DeleteMapping("/favorites/{id}")
+    @ResponseBody void deleteFavorites(@PathVariable Integer id) {
+        factRepository.deleteById(id);
     }
 }

@@ -10,8 +10,8 @@ public class ExternalBridgeService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public FactExternal getFacts() {
-        String url = "http://fact-service/facts";
+    public FactExternal getFacts(Integer page) {
+        String url = "https://catfact.ninja/facts?page=" + page;
         return restTemplate.getForObject(url, FactExternal.class);
     }
 }
