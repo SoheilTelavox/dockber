@@ -22,7 +22,7 @@ services:
       - ./api:/app
     environment:
       - PROFILE=dev
-      - DB_URL=jdbc:mysql://db:3306/auditlog
+      - DB_URL=jdbc:mysql://db:3306/facts
       - DB_USERNAME=root
       - DB_PASSWORD=secret
     depends_on:
