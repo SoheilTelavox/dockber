@@ -39,6 +39,11 @@ public class DemoController {
         return factRepository.findAll();
     }
 
+    @GetMapping("/crash")
+    @ResponseBody void crash() {
+        System.exit(1);
+    }
+
     @PostMapping("/favorites")
     @ResponseBody Fact saveFavorites(@RequestBody String body) {
         var fact = new Fact();
