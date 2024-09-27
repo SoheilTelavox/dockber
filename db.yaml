@@ -12,7 +12,7 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: db-deploymeny
+  name: db-deployment
 spec: 
   replicas: 1
   selector:
