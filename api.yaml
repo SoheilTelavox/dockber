@@ -31,9 +31,15 @@ spec:
               port: 8080
             periodSeconds: 10
             initialDelaySeconds: 5
-          startupProbe:
+          readinessProbe:
             httpGet:
               path: /facts
+              port: 8080
+            periodSeconds: 10
+            initialDelaySeconds: 5
+          startupProbe:
+            httpGet:
+              path: /favorites
               port: 8080
             periodSeconds: 10
             initialDelaySeconds: 5
